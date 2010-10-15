@@ -55,3 +55,7 @@ void beat()
 	fill_r = 200;
 }
 
+void tatum()
+{
+}
+

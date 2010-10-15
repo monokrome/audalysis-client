@@ -6,9 +6,9 @@ var
 		Events: {'Beat': 'beat', 'Tatum': 'tatum', 'Section': 'section'},
 		DefaultTime: {
 			tempo: 120,
-			count: 4,
-			value: 1/4,
-			tatum: 0,
+			beat_count: 4,
+			beat_value: 1/4,
+			tatum_value: 1/16,
 		}
 	};
 

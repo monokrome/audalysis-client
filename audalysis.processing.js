@@ -3,9 +3,10 @@
 
 	var 
 	    measure_initial,
-	    tempo = 140,           // The tempo of this song is 140.
-	    beat_duration = 1/4,   // These beats are quarter notes.
-	    beats_per_measure = 4; // There are four quarter notes per measure.
+			beat_count = 0,
+	    tempo = 140,        // The tempo of this song is 140.
+	    beats_per_measure = 4,     // There are four quarter notes per measure.
+	    beat_value = 1/4;   // These beats are quarter notes.
 
 	ProcessingJS = {
 		self: this,
@@ -16,7 +17,12 @@
 			return function(e)
 			{
 				for (var i=0, pil=Processing.instances.length; i < pil; ++i)
-					Processing.instances[i][event_name]();
+				{
+					if (typeof Processing.instances[i][e.type] != 'undefined')
+					{
+						Processing.instances[i][e.type]();
+					}
+				}
 			}
 		},
 
@@ -42,7 +48,11 @@
 			}
 
 			// Start a virtual beat for testing your animations in.
-			Audalysis.PaceMaker(self.BeatHandler);
+			Audalysis.PaceMaker({
+				tempo: tempo,
+				count: beats_per_measure,
+				beat_value: beat_value,
+			});
 
 			Audalysis.Processing = Audalysis.Processing || ProcessingJS;
 		},
@@ -59,11 +69,10 @@
 			else
 				measure_initial = false;
 
-			ProcessingJS.EventHandler('beat')(e);
+			ProcessingJS.EventHandler(e.type)(e);
 		}
 	}
 
-	// A pretty generic shortcut to create an event in all browsers.
 	function bind_event(event_name, handler, ele)
 	{
 		if (typeof ele == 'undefined')
