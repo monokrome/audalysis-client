@@ -8,8 +8,6 @@
 		options = options || Audalysis.DefaultTime;
 		options.prototype = Audalysis.DefaultTime;
 
-		console.log(options);
-
 		var i = 0;
 
 		/**
