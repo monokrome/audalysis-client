@@ -1,30 +1,6 @@
 (function(){
-	var beat_count = 0;
-
-	var 
-	    measure_initial,
-			beat_count = 0,
-	    tempo = 140,        // The tempo of this song is 140.
-	    beats_per_measure = 4,     // There are four quarter notes per measure.
-	    beat_value = 1/4;   // These beats are quarter notes.
-
-	ProcessingJS = {
+	var ProcessingJS = {
 		self: this,
-
-		// This is a function that receives an event name and returns a "real" event handler.
-		EventHandler: function(event_name)
-		{
-			return function(e)
-			{
-				for (var i=0, pil=Processing.instances.length; i < pil; ++i)
-				{
-					if (typeof Processing.instances[i][e.type] != 'undefined')
-					{
-						Processing.instances[i][e.type]();
-					}
-				}
-			}
-		},
 
 		InitHandler: function(e)
 		{
@@ -47,29 +23,22 @@
 				bind_event(Audalysis.Events[event_name], handler);
 			}
 
-			// Start a virtual beat for testing your animations in.
-			Audalysis.PaceMaker({
-				tempo: tempo,
-				count: beats_per_measure,
-				beat_value: beat_value,
-			});
-
 			Audalysis.Processing = Audalysis.Processing || ProcessingJS;
 		},
 
-		BeatHandler: function(e)
+		// This is a function that receives an event name and returns a "real" event handler.
+		EventHandler: function(event_name)
 		{
-			if (beat_count == beats_per_measure)
-				beat_count = 0;
-
-			beat_count++;
-
-			if (beat_count == 1)
-				measure_initial = true;
-			else
-				measure_initial = false;
-
-			ProcessingJS.EventHandler(e.type)(e);
+			return function(e)
+			{
+				for (var i=0, pil=Processing.instances.length; i < pil; ++i)
+				{
+					if (typeof Processing.instances[i][e.type] != 'undefined')
+					{
+						Processing.instances[i][e.type]();
+					}
+				}
+			}
 		}
 	}
 

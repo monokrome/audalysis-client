@@ -9,8 +9,6 @@ fill_decrement = 50;
 
 // Setup the Processing Canvas
 void setup(){
-	size( 400, 400 );
-	strokeWeight( 10 );
 	frameRate( 15 );
 	X = width / 2;
 	Y = width / 2;
@@ -20,6 +18,9 @@ void setup(){
 
 // Main draw loop
 void draw(){
+	size(innerWidth, innerHeight);
+	strokeWeight( 10 );
+
 	radius = radius + sin( frameCount / 4 );
 
 	// Track circle to new destination
@@ -27,7 +28,7 @@ void draw(){
 	Y+=(nY-Y)/delay;
 
 	// Fill canvas grey
-	background( 100 );
+	background( 28 );
   
 	// Set fill-color to blue
 	fill( fill_r, 121, 184 );
@@ -53,9 +54,5 @@ void mouseMoved(){
 void beat()
 {
 	fill_r = 200;
-}
-
-void tatum()
-{
 }
 
