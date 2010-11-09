@@ -7,6 +7,10 @@ int delay = 16;
 fill_r = 0;
 fill_decrement = 50;
 
+// We should extract this stuff from Audalysis.
+int beat_count = 4;
+int current_beat = 1;
+
 // Setup the Processing Canvas
 void setup(){
 	frameRate( 15 );
@@ -28,9 +32,9 @@ void draw(){
 	Y+=(nY-Y)/delay;
 
 	// Fill canvas grey
-	background( 28 );
+	background(28);
   
-	// Set fill-color to blue
+	// Set fill-color to blue, but pink on beat
 	fill( fill_r, 121, 184 );
 
 	// Set stroke-color white
@@ -39,6 +43,7 @@ void draw(){
 	// Draw circle
 	ellipse( X, Y, radius, radius );
 
+	// Slowly decrement fill color back to blue 
 	if (fill_r < fill_decrement)
 		fill_r = 0;
 	else
@@ -53,6 +58,13 @@ void mouseMoved(){
 
 void beat()
 {
-	fill_r = 200;
+	if (current_beat > beat_count)
+		current_beat = 1;
+
+	fill_r = 200 / current_beat;
+}
+
+void tatum()
+{
 }
 
