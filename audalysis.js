@@ -17,7 +17,12 @@ var
 	 */
 	for (var event_name in Audalysis.Events)
 	{
-		Audalysis[event_name] = document.createEvent('Event');
+		if (typeof document.createEventObject == 'undefined')
+			Audalysis[event_name] = document.createEvent('Event');
+
+		else
+			Audalysis[event_name] = document.createEventObject();
+
 		Audalysis[event_name].initEvent(Audalysis.Events[event_name], true, false);
 	}
 	
