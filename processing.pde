@@ -1,5 +1,6 @@
 // Global variables
 float radius = 50.0;
+float initial_radius;
 int X, Y;
 int nX, nY;
 int delay = 16;
@@ -14,6 +15,9 @@ int current_beat = 1;
 // Setup the Processing Canvas
 void setup(){
 	frameRate( 15 );
+
+	initial_radius = radius;
+
 	X = width / 2;
 	Y = width / 2;
 	nX = X;
@@ -24,6 +28,17 @@ void setup(){
 void draw(){
 	size(innerWidth, innerHeight);
 	strokeWeight( 10 );
+
+	radius = radius * 0.9;
+
+	if (radius < initial_radius)
+		radius = initial_radius;
+
+	if (radius > width * 0.8)
+		radius = width * 0.8;
+
+	if (radius > height * 0.8)
+		radius > height * 0.8
 
 	radius = radius + sin( frameCount / 4 );
 
@@ -50,6 +65,11 @@ void draw(){
 		fill_r = fill_r - fill_decrement;
 }
 
+void mousePressed()
+{
+	radius = radius * 4;
+}
+
 // Set circle's next destination
 void mouseMoved(){
 	nX = mouseX;
@@ -62,9 +82,7 @@ void beat()
 		current_beat = 1;
 
 	fill_r = 200 / current_beat;
-}
 
-void tatum()
-{
+	radius = radius * 1.7;
 }
 
