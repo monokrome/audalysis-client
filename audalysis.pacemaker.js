@@ -28,7 +28,7 @@
 		/**
 		 * Start the Tatum interval.
 		 */
-		if (options.tatum_value != 0)
+		if (typeof options.tatum_value != 'undefined')
 		{
 			if (typeof pacemaker_tatum_interval != 'undefined')
 				clearInterval(pacemaker_tatum_interval);
@@ -39,7 +39,17 @@
 			}
 
 			tatum_handler(0);
-			pacemaker_tatum_interval = setInterval(tatum_handler, 1000 / ((options.tempo / 60) * options.beat_value / options.tatum_value));
+			pacemaker_tatum_interval = setInterval(
+				tatum_handler,
+				// Convert into milliseconds, the resulting amount from:
+				1000 /
+
+				// Get the number of beats per second multipled by...
+				((options.tempo / 60) *
+
+				// The number of tatums that occur for each beat
+				((1 / options.tatum_value) / (1 / options.beat_value)))
+			);
 		}
 	}
 
