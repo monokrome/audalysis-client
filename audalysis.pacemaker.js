@@ -18,11 +18,7 @@
 
 		var beat_handler = function(delta)
 		{
-			var next_beat = function() {}
-			next_beat.prototype = Audalysis.Beat;
-			next_beat = new next_beat();
-
-			window.dispatchEvent(next_beat);
+			Audalysis.DispatchEvent('Beat');
 		}
 
 		// Fire the first beat now, and then start it's interval.
@@ -39,7 +35,7 @@
 
 			var tatum_handler = function(delta)
 			{
-				window.dispatchEvent(Audalysis.Tatum);
+				Audalysis.DispatchEvent('Tatum');
 			}
 
 			tatum_handler(0);
