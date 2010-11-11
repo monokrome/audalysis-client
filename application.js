@@ -73,7 +73,7 @@
 	if (typeof document.all == 'undefined')
 		window.addEventListener('load', application.init, false);
 	else
-		window.attachEvent('load', application.init);
+		window.attachEvent('onload', application.init);
 
 })();
 
