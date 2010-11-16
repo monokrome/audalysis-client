@@ -28,7 +28,7 @@ var
 			{
 				var event_string = Audalysis.Events[event_type];
 
-				document.documentElement['audalysis_event_' + event_string]++;
+				document.documentElement['audalysis_event_' + event_string] = !document.documentElement['audalysis_event_' + event_string];
 			}
 		}
 	};
