@@ -46,7 +46,7 @@ var
 		else if (document.attachEvent)
 		{
 			// IE doesn't supprt custom events, so you must use oppropertychange
-			document.documentElement['audalysis_event_' + event_name] = 0;
+			document.documentElement['audalysis_event_' + event_name] = false;
 			document.documentElement.attachEvent(
 				'onpropertychange',
 				function (e)
