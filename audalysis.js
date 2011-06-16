@@ -7,7 +7,7 @@ var
 			tempo: 120,
 			beat_count: 4,
 			beat_value: 1/4,
-			tatum_value: 1/16,
+			tatum_value: 1/16
 		},
 
 		Events: {'Beat': 'beat', 'Tatum': 'tatum', 'Section': 'section', 'Segment': 'segment'},
