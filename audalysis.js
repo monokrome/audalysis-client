@@ -10,7 +10,7 @@ var
 			tatum_value: 1/16,
 		},
 
-		Events: {'Beat': 'beat', 'Tatum': 'tatum', 'Section': 'section'},
+		Events: {'Beat': 'beat', 'Tatum': 'tatum', 'Section': 'section', 'Segment': 'segment'},
 		DispatchEvent: function(event_type)
 		{
 			// TODO: Add custom data here.
