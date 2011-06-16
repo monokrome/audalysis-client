@@ -51,6 +51,8 @@ var
 				'onpropertychange',
 				function (e)
 				{
+					var _e = document.documentElement['audalysis_event_' + event_name];
+					_e = !_e;
 				}
 			);
 		}
