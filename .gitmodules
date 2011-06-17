@@ -7,3 +7,6 @@
 [submodule "node_modules/nopt"]
 	path = node_modules/nopt
 	url = http://github.com/isaacs/nopt
+[submodule "node_modules/abbrev"]
+	path = node_modules/abbrev
+	url = http://github.com/isaacs/abbrev-js
