@@ -13,11 +13,14 @@ standard = $(out_filename)
 jquery = $(call out_filename,.jquery)
 require = $(call out_filename,.require)
 
+minify_suffix = ${1}.min
+
 all: $(standard) $(jquery) $(require)
 
-$(call out_filename,.%): setup_build
+$(call out_filename,%): setup_build
 	@@echo "Building $@"
-	@@cat $(call files,$*) > $@
+	@@cat $(call files,$(patsubst .%,%,$*)) > $@
+	@@echo "Minified, it would be: $(call out_filename,$(call minify_suffix,$*))"
 
 # TODO: How can I get the previous rule to build this one?
 ${standard}: setup_build
