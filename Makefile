@@ -4,6 +4,8 @@ PREFIX = .
 
 core_files = audalysis.js
 out_filename = $(BUILD_DIR)/audalysis$(1).js
+build_type = $(patsubst .%,%,$(1))
+minified_build_type = $(1).min
 
 files = src/$(1)/prefix.js \
         $(foreach file,$(core_files),src/$(file)) \
@@ -14,16 +16,15 @@ standard = $(out_filename)
 jquery = $(call out_filename,.jquery)
 require = $(call out_filename,.require)
 
-minify_suffix = ${1}.min
 
 all: $(standard) $(jquery) $(require)
 
 $(call out_filename,%): setup_build
 	@@echo "Building $@"
-	@@cat $(call files,$(patsubst .%,%,$*)) > $@
+	@@cat $(call files,$(call build_type,$*)) > $@
 
 # TODO: How can I get the previous rule to build this one?
-${standard}: setup_build
+$(standard): setup_build
 	@@echo "Building $@"
 	@@cat $(call files,standard) > $@
 
@@ -33,3 +34,5 @@ setup_build:
 clean:
 	@@echo 'Removing build directory.'
 	@@rm -rf $(BUILD_DIR)
+
+.PHONY: setup_build clean
