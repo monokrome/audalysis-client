@@ -56,5 +56,5 @@ clean:
 	@@echo 'Removing build directory.'
 	@@rm -rf $(BUILD_DIR)
 
-.PHONY: setup_build clean submodules
+.PHONY: clean setup_build submodules
 
