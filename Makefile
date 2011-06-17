@@ -2,26 +2,27 @@ BUILD_DIR = build
 PREFIX = .
 
 core_files = audalysis.js
-out_filename = audalysis.$(1)
+out_filename = $(BUILD_DIR)/audalysis$(1).js
 
 files = src/$(1)/prefix.js \
         $(foreach file,$(core_files),src/$(file)) \
         src/$(1)/suffix.js
 
-all: generic require jquery
+# Different output files, each representing a different use-case for Audalysis.
+generic = $(call out_filename,.generic)
+jquery = $(call out_filename,.jquery)
+require = $(call out_filename,.require)
 
-generic: setup_dirs
-	cat $(call files,generic) > $(BUILD_DIR)/$(call out_filename,js)
+all: $(generic) $(jquery) $(require)
 
-require: setup_dirs
-	cat $(call files,require) > $(BUILD_DIR)/$(call out_filename,require.js)
-
-jquery: setup_dirs
-	cat $(call files,jquery) > $(BUILD_DIR)/$(call out_filename,jquery.js)
+$(call out_filename,.%): setup_dirs
+	@@echo "Building $@"
+	@@cat $(call files,$*) > $@
 
 setup_dirs:
-	mkdir -p $(BUILD_DIR)
+	@@mkdir -p $(BUILD_DIR)
 
 clean:
-	@@echo "Removing build directory."
+	@@echo 'Removing build directory.'
 	@@rm -rf $(BUILD_DIR)
+
