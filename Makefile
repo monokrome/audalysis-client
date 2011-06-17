@@ -3,7 +3,7 @@ BUILD_DIR ?= build
 PREFIX ?= .
 MINIFIER ?= ./node_modules/uglify-js/bin/uglifyjs
 
-PATH := ./$(BUILD_DIR)/:$(PATH)
+PATH := $(BUILD_DIR)/:$(PATH)
 
 # List of source files relative to the src directory.
 core_files = audalysis.js
