@@ -34,14 +34,14 @@ $(call out_filename,%): setup_build
 	@@echo "Building $@"
 	@@cat $(call files,$(call build_type,$*)) > $@
 
-	@@echo "Minifying code output"
+	@@echo "Minifying $@"
 	@@${MINIFIER} $@ > $(call out_filename,$(call minified_build_type,$*))
 
 $(standard): setup_build
 	@@echo "Building $@"
 	@@cat $(call files,standard) > $@
 
-	@@echo "Minifying code output"
+	@@echo "Minifying $@"
 	@@${MINIFIER} $@ > $(call out_filename,$(call minified_build_type,$*))
 
 setup_build: submodules
