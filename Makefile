@@ -1,4 +1,5 @@
 JS_ENGINE = `which node`
+
 BUILD_DIR = build
 PREFIX = .
 
@@ -16,7 +17,6 @@ standard = $(out_filename)
 jquery = $(call out_filename,.jquery)
 require = $(call out_filename,.require)
 
-
 all: $(standard) $(jquery) $(require)
 
 $(call out_filename,%): setup_build
@@ -28,11 +28,15 @@ $(standard): setup_build
 	@@echo "Building $@"
 	@@cat $(call files,standard) > $@
 
-setup_build:
+setup_build: submodules
 	@@mkdir -p $(BUILD_DIR)
+
+submodules:
+	@@echo "Updating git modules..."
+	@@git submodule update --init
 
 clean:
 	@@echo 'Removing build directory.'
 	@@rm -rf $(BUILD_DIR)
 
-.PHONY: setup_build clean
+.PHONY: setup_build clean submodules
