@@ -15,16 +15,16 @@ require = $(call out_filename,.require)
 
 all: $(standard) $(jquery) $(require)
 
-$(call out_filename,.%): setup_dirs
+$(call out_filename,.%): setup_build
 	@@echo "Building $@"
 	@@cat $(call files,$*) > $@
 
 # TODO: How can I get the previous rule to build this one?
-${standard}: setup_dirs
+${standard}: setup_build
 	@@echo "Building $@"
 	@@cat $(call files,standard) > $@
 
-setup_dirs:
+setup_build:
 	@@mkdir -p $(BUILD_DIR)
 
 clean:
