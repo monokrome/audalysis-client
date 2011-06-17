@@ -52,7 +52,7 @@ submodules:
 	@@git submodule update --init
 
 clean:
-	@@echo 'Removing build directory.'
+	@@echo 'Removing dist directory.'
 	@@rm -rf $(DIST_DIR)
 
 .PHONY: clean setup_build submodules
