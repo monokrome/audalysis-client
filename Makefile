@@ -42,6 +42,9 @@ $(standard): setup_build
 	@@echo "Building $@"
 	@@cat $(call files,standard) > $@
 
+	@@echo "Minifying code output"
+	@@${MINIFIER} $@ > $(call out_filename,$(call minified_build_type,$*))
+
 setup_build: submodules
 	@@mkdir -p $(BUILD_DIR)
 
