@@ -9,7 +9,7 @@ files = src/$(1)/prefix.js \
         src/$(1)/suffix.js
 
 # Different output files, each representing a different use-case for Audalysis.
-standard = $(call out_filename,.standard)
+standard = $(call out_filename)
 jquery = $(call out_filename,.jquery)
 require = $(call out_filename,.require)
 
@@ -18,6 +18,11 @@ all: $(standard) $(jquery) $(require)
 $(call out_filename,.%): setup_dirs
 	@@echo "Building $@"
 	@@cat $(call files,$*) > $@
+
+# TODO: How can I get the previous rule to build this one?
+${standard}:
+	@@echo "Building $@"
+	@@cat $(call files,standard) > $@
 
 setup_dirs:
 	@@mkdir -p $(BUILD_DIR)
