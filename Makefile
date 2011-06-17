@@ -2,6 +2,7 @@ JS_ENGINE = `which node`
 
 BUILD_DIR = build
 PREFIX = .
+MINIFIER = ./node_modules/uglify-js/bin/uglifyjs
 
 PATH := ./$(BUILD_DIR)/:$(PATH)
 
@@ -25,6 +26,9 @@ $(call out_filename,%): setup_build
 	@@echo "Building $@"
 	@@cat $(call files,$(call build_type,$*)) > $@
 
+	@@echo "Minifying code output"
+	@@${MINIFIER} $@ > $(call out_filename,$(call minified_build_type,$*))
+
 # TODO: How can I get the previous rule to build this one?
 $(standard): setup_build
 	@@echo "Building $@"
@@ -42,3 +46,4 @@ clean:
 	@@rm -rf $(BUILD_DIR)
 
 .PHONY: setup_build clean submodules
+
