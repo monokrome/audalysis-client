@@ -1,5 +1,3 @@
-(function(){
-
 	var pacemaker_beat_interval,
 	    pacemaker_tatum_interval;
 
@@ -52,6 +50,3 @@
 			);
 		}
 	}
-
-})();
-

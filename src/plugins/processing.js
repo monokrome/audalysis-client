@@ -1,4 +1,3 @@
-(function(){
 	var ProcessingJS = {
 		self: this,
 
@@ -84,5 +83,3 @@
 		}
 	    }, false);
 	}
-})();
-

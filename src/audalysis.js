@@ -1,5 +1,3 @@
-(function(){
-
 var
 	// Defines events that occur in relation to different occurances in our audio
 	Audalysis = {
@@ -58,7 +56,5 @@ var
 		}
 	}
 
+
 	window.Audalysis = window.Audalysis || Audalysis;
-
-})();
-
