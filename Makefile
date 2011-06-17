@@ -1,3 +1,4 @@
+JS_ENGINE = `which node`
 BUILD_DIR = build
 PREFIX = .
 
@@ -20,7 +21,6 @@ all: $(standard) $(jquery) $(require)
 $(call out_filename,%): setup_build
 	@@echo "Building $@"
 	@@cat $(call files,$(patsubst .%,%,$*)) > $@
-	@@echo "Minified, it would be: $(call out_filename,$(call minify_suffix,$*))"
 
 # TODO: How can I get the previous rule to build this one?
 ${standard}: setup_build
