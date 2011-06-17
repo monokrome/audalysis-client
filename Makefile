@@ -2,6 +2,7 @@ JS_ENGINE ?= `which node`
 DIST_DIR ?= dist
 PREFIX ?= .
 MINIFIER ?= ./node_modules/uglify-js/bin/uglifyjs
+JSLINT ?= ./node_modules/jslint/bin/jslint.js
 
 PATH := $(DIST_DIR)/:$(PATH)
 
