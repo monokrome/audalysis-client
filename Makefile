@@ -1,8 +1,8 @@
-JS_ENGINE = `which node`
+JS_ENGINE ?= `which node`
 
-BUILD_DIR = build
-PREFIX = .
-MINIFIER = ./node_modules/uglify-js/bin/uglifyjs
+BUILD_DIR ?= build
+PREFIX ?= .
+MINIFIER ?= ./node_modules/uglify-js/bin/uglifyjs
 
 PATH := ./$(BUILD_DIR)/:$(PATH)
 
