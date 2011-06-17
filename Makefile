@@ -1,16 +1,16 @@
 JS_ENGINE ?= `which node`
-BUILD_DIR ?= build
+DIST_DIR ?= dist
 PREFIX ?= .
 MINIFIER ?= ./node_modules/uglify-js/bin/uglifyjs
 
-PATH := $(BUILD_DIR)/:$(PATH)
+PATH := $(DIST_DIR)/:$(PATH)
 
 # List of source files relative to the src directory.
 core_files = audalysis.js
 
 # Defines the filename that will be generated at the end of processing.
 #   - $(1) will be replaced with the specific build type prefixed by a dot.
-out_filename = $(BUILD_DIR)/audalysis$(1).js
+out_filename = $(DIST_DIR)/audalysis$(1).js
 
 # Used to pull a leading dot out of a given pattern in order to get a build type
 build_type = $(patsubst .%,%,$(1))
@@ -45,7 +45,7 @@ $(standard): setup_build
 	@@${MINIFIER} $@ > $(call out_filename,$(call minified_build_type,$*))
 
 setup_build: submodules
-	@@mkdir -p $(BUILD_DIR)
+	@@mkdir -p $(DIST_DIR)
 
 submodules:
 	@@echo "Updating git modules..."
@@ -53,6 +53,6 @@ submodules:
 
 clean:
 	@@echo 'Removing build directory.'
-	@@rm -rf $(BUILD_DIR)
+	@@rm -rf $(DIST_DIR)
 
 .PHONY: clean setup_build submodules
