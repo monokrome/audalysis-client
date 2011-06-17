@@ -3,6 +3,8 @@ JS_ENGINE = `which node`
 BUILD_DIR = build
 PREFIX = .
 
+PATH := ./$(BUILD_DIR)/:$(PATH)
+
 core_files = audalysis.js
 out_filename = $(BUILD_DIR)/audalysis$(1).js
 build_type = $(patsubst .%,%,$(1))
