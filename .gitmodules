@@ -1,3 +1,6 @@
 [submodule "node_modules/uglify-js"]
 	path = node_modules/uglify-js
 	url = git://github.com/mishoo/UglifyJS.git
+[submodule "node_modules/jslint"]
+	path = node_modules/jslint
+	url = git://github.com/reid/node-jslint.git
