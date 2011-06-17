@@ -1,5 +1,4 @@
 JS_ENGINE ?= `which node`
-
 BUILD_DIR ?= build
 PREFIX ?= .
 MINIFIER ?= ./node_modules/uglify-js/bin/uglifyjs
