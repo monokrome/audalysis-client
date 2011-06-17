@@ -9,11 +9,11 @@ files = src/$(1)/prefix.js \
         src/$(1)/suffix.js
 
 # Different output files, each representing a different use-case for Audalysis.
-generic = $(call out_filename,.generic)
+standard = $(call out_filename,.standard)
 jquery = $(call out_filename,.jquery)
 require = $(call out_filename,.require)
 
-all: $(generic) $(jquery) $(require)
+all: $(standard) $(jquery) $(require)
 
 $(call out_filename,.%): setup_dirs
 	@@echo "Building $@"
