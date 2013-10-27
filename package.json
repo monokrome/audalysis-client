@@ -1,0 +1,22 @@
+{
+  "name": "audalysis-client",
+  "version": "0.1.0",
+  "description": "The Audalysis client tools",
+
+  "scripts": {
+    "test": "mocha"
+  },
+
+  "repository": {
+    "type": "git",
+    "url": "github.com:monokrome/audalysis-client"
+  },
+
+  "keywords": [
+    "audio"
+  ],
+
+  "author": "Brandon R. Stoner",
+  "license": "MIT",
+  "gitHead": "f9dd15d67bab440fa3cc8a0ff4014af0d2f5fb56"
+}
