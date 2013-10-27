@@ -28,6 +28,7 @@
     "browserify": "~2.35.0",
     "grunt-browserify": "~1.2.9",
     "coffeeify": "~0.5.2",
-    "grunt-contrib-watch": "~0.5.3"
+    "grunt-contrib-watch": "~0.5.3",
+    "jsdom": "~0.8.8"
   }
 }
