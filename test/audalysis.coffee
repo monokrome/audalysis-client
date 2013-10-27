@@ -16,7 +16,7 @@ describe 'Audalysis', ->
         done()
 
     it 'returns expected elements', (done) ->
-      elements = Audalysis.watch '#viz', @watchOptions
+      elements = Audalysis.watch 'audio', @watchOptions
 
       chai.expect(elements.length).to.equal 1
       done()
