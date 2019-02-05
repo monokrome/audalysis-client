@@ -16,19 +16,19 @@
   "license": "MIT",
   "gitHead": "f9dd15d67bab440fa3cc8a0ff4014af0d2f5fb56",
   "devDependencies": {
-    "chai": "~1.8.1",
-    "mocha": "~1.13.0",
-    "sinon": "~1.7.3",
-    "coffee-coverage": "~0.3.0",
-    "coffee-script": "~1.6.3",
-    "grunt-cli": "~0.1.9",
-    "grunt": "~0.4.1",
-    "grunt-contrib-concat": "~0.3.0",
-    "grunt-contrib-uglify": "~0.2.4",
-    "browserify": "~2.35.0",
-    "grunt-browserify": "~1.2.9",
-    "coffeeify": "~0.5.2",
-    "grunt-contrib-watch": "~0.5.3",
-    "jsdom": "~0.8.8"
+    "chai": "~4.2.0",
+    "mocha": "~5.2.0",
+    "sinon": "~7.2.3",
+    "coffee-coverage": "~3.0.1",
+    "coffee-script": "~1.12.7",
+    "grunt-cli": "~1.3.2",
+    "grunt": "~1.0.3",
+    "grunt-contrib-concat": "~1.0.1",
+    "grunt-contrib-uglify": "~4.0.0",
+    "browserify": "~16.2.3",
+    "grunt-browserify": "~5.3.0",
+    "coffeeify": "~3.0.1",
+    "grunt-contrib-watch": "~1.1.0",
+    "jsdom": "~13.2.0"
   }
 }
